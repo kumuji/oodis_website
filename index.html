@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="OoDIS Anomaly Instance Segmentation Benchmark">
+  <meta name="author" content="Alexey Nekrasov">
+  <title>OoDIS Anomaly Instance Segmentation Benchmark</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/modern-business.css" rel="stylesheet">
+  <style>
+    .people {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: #f9f9f9;
+    }
+
+    .card-img-left {
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+
+    .card-img {
+      display: block;
+      max-width: 100px;
+      /* Ensures the image has a consistent size */
+      height: auto;
+      border-radius: 50%;
+    }
+
+    .card-body {
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .banner {
+      background-image: url('images/segment-banner-smaller.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      position: relative;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      color: #ffffff;
+    }
+
+    .news-section {
+      margin-top: 30px;
+    }
+
+    .news-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .news-date {
+      color: gray;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .news-description {
+      margin-bottom: 20px;
+    }
+
+    .news-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .news-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .banner {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Navigation -->
+    <script type="text/javascript" src="navigation.js"></script>
+    <div class="banner" style="background-image: url('images/segment-banner-smaller.jpg')">
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="my-4">OoDIS: Anomaly Instance Segmentation Benchmark</h1>
+
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <p><strong>Anomaly Instance Segmentation</strong> is a task that aims to find objects that are present only at
+          inference time and unknown during training.
+          A typical anomaly is a deer or a cardboard box in the middle of the road.
+          In the benchmark, we extend the labels of well-known benchmarks such as SegemntMeIfYouCan and FishyScapes Lost
+          and Found to instance segmentation.
+          We combine two benchmarks into a unified benchmark and evaluate the most common metrics instance metrics of
+          Average Precision. </p>
+        <p>We extend labels of 2 existing benchmarks for Instance Segmentation:</p>
+        <ul>
+          <li>SegmentMeIfYouCan, containing two datasets: RoadAnomaly21 and RoadObstacle21</li>
+          <li>Fishyscapes: Lost & Found</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="news-section">
+      <h3 class="news-title">Latest News</h3>
+      <hr>
+
+      <div class="news-item">
+        <h4 class="news-title">OoDIS Benchmark is online - June 15, 2024</h4>
+        <p class="news-description">The OoDIS bencmark went online on <a
+            href="https://codalab.lisn.upsaclay.fr/competitions/19384">Codalab</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <script type="text/javascript" src="footer.js"></script>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

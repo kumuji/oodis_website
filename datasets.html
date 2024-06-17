@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="OoDIS Anomaly Instance Segmentation Benchmark">
+	<meta name="author" content="Alexey Nekrasov">
+
+	<title>OoDIS Anomaly Instance Segmentation Benchmark Datasets</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/modern-business.css" rel="stylesheet">
+
+	<style>
+		.flex-container {
+			display: flex;
+			align-items: center;
+			/* Aligns items to the start of the container */
+			justify-content: space-between;
+			/* Puts space between the items */
+		}
+
+		.flex-item {
+			flex: 1;
+			/* Each flex item will take up an equal amount of space */
+		}
+
+		/* Update your button class as follows */
+		.button {
+			background-color: #0a1172;
+			/* Blue */
+			border: none;
+			color: white;
+			padding: 20px 10px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+			transition: background-color 0.3s, transform 0.3s;
+			white-space: nowrap;
+			/* Prevents the button text from wrapping */
+
+		}
+
+		.button:hover {
+			background-color: #0a1172;
+			transform: scale(1.05);
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<script type="text/javascript" src="navigation.js"></script>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3">Datasets
+		</h1>
+
+		<h3>SegmentMeIfYouCan</h3>
+		<p> We use two datasets from the <a href="https://segmentmeifyoucan.com/">SegmetMeIfYouCan</a> benchmark, namely
+			RoadObstacle21 and RoadAnomaly2. The buttons below will direct you to the SegmentMeIfYouCan website, where these
+			datasets are available for download. (We recommend Mirror 2 for both.)</p>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h4>RoadObstacle21</h4>
+				<p><strong>Obstacle track:</strong>
+					obstacle segmentation with the road as region of interest
+				</p>
+				<ul>
+					<li>412 test images with pixel-level annotations of resolution 1920x1080</li>
+					<li>30 extra images published with pixel-level annotations</li>
+					<li>the obstacles in this dataset can be understood as anomaly objects as well</li>
+					<li>object types: e.g. stuffed toys, sleighs, tree stumps, ...</li>
+					<li>obstacles appear at different distances (one distance per image)</li>
+					<li>different road surfaces, lighting and weather conditions available</li>
+				</ul>
+
+				<h4>RoadAnomaly21</h4>
+				<p><strong>Anomaly track:</strong>
+					general anomaly segmentation in full street scenes </p>
+				<ul>
+					<li>100 test images with pixel-level annotations of resolution 2048x1024 and 1280x720</li>
+					<li>10 extra images published with pixel-level annotations</li>
+					<li>many anomalous objects per image, e.g. herd of sheeps</li>
+					<li>anomalies can appear anywhere in the image</li>
+					<li>anomalies widely differ in size (from 0.5% to 40% of the image)</li>
+					<li>images were collected from web resources and therefore depict a wide variety of environments</li>
+				</ul>
+
+				<div class="button">
+					<a href="https://segmentmeifyoucan.com/datasets" class="button" target="_blank">SegmentMeIfYouCan</a>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<p> The <a href="https://fishyscapes.com/">Fishyscapes Lost and Found</a> dataset is an anomaly detection for
+					semantic segmentation dataset based off of the Cityscapes dataset. The button below will direct you to the
+					Lost and Found website, where the dataset is available for download.
+					We expect submission of the <b>full Lost and Found dataset</b> to the benchmark to keep exact image names
+					private.
+				</p>
+
+				<h3>Fishyscapes Lost & Found</h3>
+				<ul>
+					<li>275 test images from different locations.</li>
+					<li>Excludes sequences with children or bikes, as these are not considered anomalies.</li>
+					<li>Removes images without objects to focus on relevant data.</li>
+					<li>Features small anomalous objects that are not uniformly distributed in the images.</li>
+					<li>Enables testing with real images to prevent overfitting on synthetic image processing.</li>
+				</ul>
+				<div class="button">
+					<a href="https://wwwlehre.dhbw-stuttgart.de/~sgehrig/lostAndFoundDataset/index.html" class="button"
+						target="_blank">Lost and
+						Found</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<hr>
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<script type="text/javascript" src="footer.js"></script>
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

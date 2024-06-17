@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="OoDIS Anomaly Instance Segmentation Benchmark">
+   <meta name="author" content="Alexey Nekrasov">
+   <title>Anomaly Instance Segmentation Dataset</title>
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/modern-business.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+   <link href="/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+   <style>
+      .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
+         white-space: normal;
+      }
+
+      .custom-table {
+         margin: 20px auto;
+         min-width: 1000px;
+      }
+
+      .details-row {
+         background-color: #f9f9f9;
+         padding: 10px;
+         border-top: 1px solid #ccc;
+      }
+
+      @media (max-width: 768px) {
+
+         .tabulator-cell,
+         .tabulator-col {
+            min-width: 80px;
+         }
+
+         .tabulator-row .details-row {
+            display: block;
+         }
+      }
+
+      .table-responsive {
+         overflow-x: auto;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Navigation -->
+   <script type="text/javascript" src="navigation.js"></script>
+
+   <!-- Page Content -->
+   <div class="container">
+      <br />
+      <div>
+         <h1>Leaderboard</h1>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+         <div class="col-lg-12">
+            <h4>Task: Anomaly Instance Segmentation</h4>
+            <p>
+               Anomaly segmentation is a task that aims to find objects that are present only at inference time and
+               unknown during training. A typical anomaly is a deer or a cardboard box in the middle of the road.
+               Current benchmarks use semantic segmentation to evaluate the performance of anomaly segmentation
+               methods. However, this approach is not sufficient for complex driving cases with multiple anomalies.
+               Semantic segmentation does not provide enough information for downstream tasks such as planning or
+               object tracking. The more challenging problem of instance segmentation remains under-researched and
+               lacks accessible benchmarks. This benchmark addresses the lack of test evaluation protocols
+               available to the community. In the benchmark, we extend the labels of well-known benchmarks such as
+               SegmentMeIfYouCan and FishyScapes Lost and Found to instance segmentation. We combine two benchmarks
+               into a unified benchmark and evaluate the most common metrics instance metrics of Average Precision.
+            </p>
+            <p class="news-description">The OoDIS bencmark is online at <a href="https:
+                  //codalab.lisn.upsaclay.fr/competitions/19384">Codalab </a></p>
+            <h4>Metrics</h4>
+            <p>
+               <strong>AP (Average Precision)</strong> measures the average precision values across multiple
+               Intersection Over Union (IoU) thresholds. It is a popular metric in object detection and segmentation
+               tasks for evaluating the precision of predictions.
+            </p>
+            <p>
+               <strong>AP50</strong> refers to the Average Precision at 50% IoU, providing insight into how well
+               the model can detect objects with a moderate overlap requirement.
+            </p>
+            <h4>Benchmark Results</h4>
+         </div>
+      </div>
+      <div class="table-responsive">
+         <div id="result-table" class="custom-table"></div>
+      </div>
+   </div>
+
+   <!-- Footer -->
+   <footer class="py-5 bg-dark">
+      <script type="text/javascript" src="footer.js"></script>
+   </footer>
+
+   <!-- Bootstrap core JavaScript -->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator.min.js"></script>
+   <script>
+      var paperFormatter = function (cell) {
+         var url = cell.getValue();
+         return url ? "<a href='" + url + "' target='_blank'><i class='fa fa-file-pdf'></i></a>" : "n/a";
+      };
+
+      var codeFormatter = function (cell) {
+         var url = cell.getValue();
+         return url ? "<a href='" + url + "' target='_blank'><i class='fab fa-github'></i></a>" : "";
+      };
+
+      var iconFormatter = function (cell, formatterParams) {
+         var value = cell.getValue();
+         var icon = value === "TRUE" ? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>";
+         return icon;
+      };
+
+      var tabledata2 = [
+         {
+            "method": "U3HS",
+            "requires_auxilary_model": "FALSE",
+            "requires_auxilary_data": "FALSE",
+            "runtime": "1.5s",
+            "LaF_AP": 0.19,
+            "LaF_AP50": 0.73,
+            "RA_AP": 0.00,
+            "RA_AP50": 0.00,
+            "RO_AP": 0.22,
+            "RO_AP50": 0.62,
+            "mean_AP": 0.19,
+            "mean_AP50": 0.58,
+            "paper": "https://arxiv.org/pdf/2209.05407.pdf",
+            "code": "https://github.com/RuiZhou-cn/U3HS"
+         },
+         {
+            "method": "UGainS",
+            "requires_auxilary_model": "TRUE",
+            "requires_auxilary_data": "TRUE",
+            "runtime": "1.5s",
+            "LaF_AP": 27.14,
+            "LaF_AP50": 45.82,
+            "RA_AP": 11.42,
+            "RA_AP50": 19.15,
+            "RO_AP": 27.22,
+            "RO_AP50": 46.54,
+            "mean_AP": 25.19,
+            "mean_AP50": 42.81,
+            "paper": "https://arxiv.org/pdf/2308.02046.pdf",
+            "code": "https://github.com/kumuji/ugains"
+         },
+         {
+            "method": "Mask2Anomaly",
+            "requires_auxilary_model": "FALSE",
+            "requires_auxilary_data": "TRUE",
+            "runtime": "1.5s",
+            "LaF_AP": 11.73,
+            "LaF_AP50": 23.64,
+            "RA_AP": 4.78,
+            "RA_AP50": 9.03,
+            "RO_AP": 27.22,
+            "RO_AP50": 46.54,
+            "mean_AP": 13.73,
+            "mean_AP50": 24.30,
+            "paper": "https://arxiv.org/pdf/2307.13316.pdf",
+            "code": "https://github.com/shyam671/Mask2Anomaly-Unmasking-Anomalies-in-Road-Scene-Segmentation"
+         }
+      ];
+
+      var table = new Tabulator("#result-table", {
+         rowFormatter: function (row) {
+            var element = row.getElement();
+            var details = document.createElement("div");
+            details.style.display = "none";
+            details.className = "details-row";
+            details.textContent = "Details go here";
+            element.appendChild(details);
+         },
+         responsiveLayout: "hidden",
+         layout: "fitColumns",
+         data: tabledata2,
+         columns: [
+            {title: "Method", field: "method"},
+            {title: "Paper", field: "paper", formatter: paperFormatter, headerSort: false},
+            {title: "Code", field: "code", formatter: codeFormatter, headerSort: false},
+            {
+               title: "Method Requirements",
+               columns: [
+                  {title: "Requires Auxilary Model", field: "requires_auxilary_model", formatter: iconFormatter, align: "center"},
+                  {title: "Requires Auxilary Data", field: "requires_auxilary_data", formatter: iconFormatter, align: "center"}
+               ]
+            },
+            {
+               title: "FS Lost & Found",
+               columns: [
+                  {title: "AP", field: "LaF_AP", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "desc"},
+                  {title: "AP50", field: "LaF_AP50", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "asc"}
+               ]
+            },
+            {
+               title: "Road Anomaly",
+               columns: [
+                  {title: "AP", field: "RA_AP", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "desc"},
+                  {title: "AP50", field: "RA_AP50", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "asc"}
+               ]
+            },
+            {
+               title: "Road Obstacle",
+               columns: [
+                  {title: "AP", field: "RO_AP", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "desc"},
+                  {title: "AP50", field: "RO_AP50", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "asc"}
+               ]
+            },
+            {
+               title: "Mean",
+               columns: [
+                  {title: "AP", field: "mean_AP", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "desc"},
+                  {title: "AP50", field: "mean_AP50", align: "right", sorter: "number", sorterParams: {alignEmptyValues: 'bottom'}, headerSortStartingDir: "asc"}
+               ]
+            }
+         ],
+         initialSort: [{column: "mean_AP", dir: "desc"}]
+      });
+   </script>
+</body>
+
+</html>
